@@ -1,0 +1,89 @@
+@import './variables';
+
+body{
+    font-family: 'Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: $dark;
+}
+
+.cart{
+    transition: $smooth;
+    background-color: $primary;
+    &:hover{
+        background-color: $primary-hover;
+    }
+}
+
+nav li a {
+    transition: $smooth;
+    color: $dark;
+    &:hover{
+        color: $primary-hover;
+        text-decoration: none;
+    }
+}
+
+.homepage-main{
+    background-color: $gray;
+}
+
+.cart-btn{
+    transition: $smooth;
+    border: $primary solid 2px;
+    color: $primary;
+    border-radius: 1.75rem;
+    &:hover{
+        background-color: $primary-hover;
+        color: $pure-white;
+        border: $primary-hover solid 2px;
+    }
+}
+
+.pizza-size-span{
+    background-color: $gray;
+    font-size: 0.75rem;
+}
+
+.order-btn{
+    transition: $smooth;
+    background-color: $primary;
+    border-radius: 1.75rem;
+    color: $secondary;
+    &:hover{
+        background-color: $primary-hover;
+        color: $pure-white;
+    }
+}
+
+.empty-cart-tagline{
+    color: $dark;
+    font-weight: lighter;
+}
+
+.empty-cart-box{
+    background-color: $secondary;
+}
+
+.cart-item-img{
+    width: 125px;
+}
+
+.cart-total-amount-text{
+    font-size: 1.20rem;
+}
+
+.cart-total-amount{
+    font-size: 1.25rem;
+    color: $primary;
+}
+
+.register{
+    background-color: $secondary;
+}
+
+.link{
+    color: $primary;
+    &:hover{
+        color: $primary-hover;
+    }
+}
