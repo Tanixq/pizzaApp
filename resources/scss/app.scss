@@ -1,15 +1,17 @@
 @import './variables';
+@import '~notyf/notyf.min.css';
 
-body{
+body {
     font-family: 'Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
     color: $dark;
 }
 
-.cart{
+.cart {
     transition: $smooth;
     background-color: $primary;
-    &:hover{
+
+    &:hover {
         background-color: $primary-hover;
     }
 }
@@ -17,73 +19,97 @@ body{
 nav li a {
     transition: $smooth;
     color: $dark;
-    &:hover{
+
+    &:hover {
         color: $primary-hover;
         text-decoration: none;
     }
 }
 
-.homepage-main{
+.homepage-main {
     background-color: $gray;
 }
 
-.cart-btn{
+.cart-btn {
     transition: $smooth;
     border: $primary solid 2px;
     color: $primary;
     border-radius: 1.75rem;
-    &:hover{
+
+    &:hover {
         background-color: $primary-hover;
         color: $pure-white;
         border: $primary-hover solid 2px;
     }
+
+    &:focus {
+        outline: none;
+    }
 }
 
-.pizza-size-span{
+.pizza-size-span {
     background-color: $gray;
     font-size: 0.75rem;
 }
 
-.order-btn{
+.order-btn {
     transition: $smooth;
     background-color: $primary;
     border-radius: 1.75rem;
     color: $secondary;
-    &:hover{
+
+    &:hover {
         background-color: $primary-hover;
         color: $pure-white;
     }
+
+    &:focus {
+        outline: none;
+    }
 }
 
-.empty-cart-tagline{
+.empty-cart-tagline {
     color: $dark;
     font-weight: lighter;
 }
 
-.empty-cart-box{
+.empty-cart-box {
     background-color: $secondary;
 }
 
-.cart-item-img{
+.cart-item-img {
     width: 125px;
 }
 
-.cart-total-amount-text{
+.cart-total-amount-text {
     font-size: 1.20rem;
 }
 
-.cart-total-amount{
+.cart-total-amount {
     font-size: 1.25rem;
     color: $primary;
 }
 
-.register{
+.register {
     background-color: $secondary;
 }
 
-.link{
+.link {
     color: $primary;
-    &:hover{
+
+    &:hover {
         color: $primary-hover;
+    }
+}
+
+.btn {
+    &:focus {
+        outline: none !important;
+        box-shadow: none;
+    }
+
+    &:active {
+        outline: none !important;
+        box-shadow: none;
     }
 }

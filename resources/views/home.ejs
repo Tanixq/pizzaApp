@@ -20,7 +20,7 @@
     </section>
 
     <!-- menu Section  -->
-    <section class="menu container mx-auto py-5 mt-5">
+    <section id="menu" class="menu container mx-auto py-5 mt-5">
 
         <h5 class="font-weight-bold mb-5">All Pizzas</h5>
 
@@ -28,64 +28,23 @@
         <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
 
             <!-- card  -->
-            <div class="col mb-4">
-              <div class="card h-100">
-                <img src="https://raw.githubusercontent.com/codersgyan/realtime-pizza-app-node-express-mongo/master/public/img/pizza.png" class="card-img-top p-4" alt="pizza_img">
-                <div class="card-body d-flex flex-column mx-auto">
-                  <h5 class="card-title">Margherita</h5>
-                  <span class="text-center pizza-size-span rounded py-1 text-uppercase">small</span>
-                </div>
-                <div class="container mx-auto d-flex align-items-center justify-content-between p-4">
-                    <h5 class="font-weight-bold">$20</h5>
-                    <button class="cart-btn btn">+ Add</button>
+            <% pizzas.forEach(pizza => { %>
+             
+              <div class="col mb-4">
+                <div class="card h-100">
+                  <img src="img/<%=pizza.image%>" class="card-img-top p-4" alt="pizza_img">
+                  <div class="card-body d-flex flex-column mx-auto">
+                    <h5 class="card-title"><%= pizza.name %> </h5>
+                    <span class="text-center pizza-size-span rounded py-1 text-uppercase"><%= pizza.size %></span>
+                  </div>
+                  <div class="container mx-auto d-flex align-items-center justify-content-between p-4">
+                      <h5 class="font-weight-bold">₹<%= pizza.price %> </h5>
+                      <button data-pizza="<%= JSON.stringify(pizza) %> " class="btn cart-btn">+ Add</button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- card  -->
-            <div class="col mb-4">
-              <div class="card h-100">
-                <img src="https://raw.githubusercontent.com/codersgyan/realtime-pizza-app-node-express-mongo/master/public/img/pizza.png" class="card-img-top p-4" alt="pizza_img">
-                <div class="card-body d-flex flex-column mx-auto">
-                  <h5 class="card-title">Margherita</h5>
-                  <span class="text-center pizza-size-span rounded py-1 text-uppercase">small</span>
-                </div>
-                <div class="container mx-auto d-flex align-items-center justify-content-between p-4">
-                    <h5 class="font-weight-bold">$20</h5>
-                    <button class="cart-btn btn">+ Add</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- card  -->
-            <div class="col mb-4">
-              <div class="card h-100">
-                <img src="https://raw.githubusercontent.com/codersgyan/realtime-pizza-app-node-express-mongo/master/public/img/pizza.png" class="card-img-top p-4" alt="pizza_img">
-                <div class="card-body d-flex flex-column mx-auto">
-                  <h5 class="card-title">Margherita</h5>
-                  <span class="text-center pizza-size-span rounded py-1 text-uppercase">small</span>
-                </div>
-                <div class="container mx-auto d-flex align-items-center justify-content-between p-4">
-                    <h5 class="font-weight-bold">$20</h5>
-                    <button class="cart-btn btn">+ Add</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- card  -->
-            <div class="col mb-4">
-              <div class="card h-100">
-                <img src="https://raw.githubusercontent.com/codersgyan/realtime-pizza-app-node-express-mongo/master/public/img/pizza.png" class="card-img-top p-4" alt="pizza_img">
-                <div class="card-body d-flex flex-column mx-auto">
-                  <h5 class="card-title">Margherita</h5>
-                  <span class="text-center pizza-size-span rounded py-1 text-uppercase">small</span>
-                </div>
-                <div class="container mx-auto d-flex align-items-center justify-content-between p-4">
-                    <h5 class="font-weight-bold">$20</h5>
-                    <button class="cart-btn btn">+ Add</button>
-                </div>
-              </div>
-            </div>
+            <% }) %>
 
           </div>
 

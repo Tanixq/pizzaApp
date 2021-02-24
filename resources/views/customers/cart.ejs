@@ -1,12 +1,15 @@
-<!-- Empty Cart -->
+<% if (!cart) { %>
+ <!-- Empty Cart -->
 
-<!-- <div class="container rounded empty-cart-box mx-auto px-4 py-4 text-center d-flex flex-column align-items-center mt-4">
+<div class="container rounded empty-cart-box mx-auto px-4 py-4 text-center d-flex flex-column align-items-center mt-4">
     <h2 class="font-weight-bold mb-3 mt-3">Cart Empty 😕</h2>
     <h6 class="empty-cart-tagline mb-3 mt-2">You probably haven't ordered a pizza yet.<br>
     To order a pizza, go to main page.</h6>
     <img src="img/empty-cart.png" alt="empty_cart_img" class="mb-3 w-25 mt-4">
     <a href="/" class="btn order-btn rounded mb-3 mt-4">Main Page</a>
-</div> -->
+</div>
+
+<% }else{ %>
 
 <!-- Cart with items -->
 
@@ -17,19 +20,21 @@
         <h2 class="ml-3 font-weight-bold">Order Summary</h2>
     </div>
     <hr>
-    <div class="d-flex align-items-center my-4 p-2">
-        <img class="cart-item-img" src="img/pizza.png" alt="added_pizza_img">
-        <div class="ml-3 flex-grow-1">
-            <h4 class="font-weight-bold">Marinara</h4>
-            <span class="text-uppercase">small</span>
+    <% for( let pizza of Object.values(cart.items) ) { %>
+        <div class="d-flex align-items-center my-4 p-2">
+            <img class="cart-item-img" src="img/<%=pizza.item.image%> " alt="added_pizza_img">
+            <div class="ml-3 flex-grow-1">
+                <h4 class="font-weight-bold"><%=pizza.item.name%></h4>
+                <span class="text-uppercase"><%=pizza.item.size%></span>
+            </div>
+            <span class="flex-grow-1"><%=pizza.qty%> Pcs</span>
+            <span class="font-weight-bold">₹<%=pizza.item.price%></span>
         </div>
-        <span class="flex-grow-1">1 Pcs</span>
-        <span class="font-weight-bold">$20</span>
-    </div>
+    <% } %>
     <hr>
     <div class="text-right p-2">
         <span class="cart-total-amount-text font-weight-bold">Total Amount:</span>
-        <span class="cart-total-amount font-weight-bold ml-2">$20</span>
+        <span class="cart-total-amount font-weight-bold ml-2">₹ <%=cart.totalPrice%></span>
         <form action="" class="p-3">
             <input type="text" name="address" placeholder="Address" name="address" class="px-2 border border-secondary py-1 my-2 rounded w-25">
             <br>
@@ -42,3 +47,5 @@
     </div>
 
 </div>
+
+<% } %>
