@@ -55,7 +55,7 @@ app.set('view engine', 'ejs')
 //Global middleware
 app.use((req, res, next) => {
     res.locals.cart = req.session.cart
-    if(req.session.passport.user){
+    if(req.session.passport != undefined ){
         res.locals.user = req.session.passport.user
     }
     next()
