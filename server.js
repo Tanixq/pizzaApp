@@ -57,6 +57,8 @@ app.use((req, res, next) => {
     res.locals.cart = req.session.cart
     if(req.session.passport != undefined ){
         res.locals.user = req.session.passport.user
+    } else {
+        res.locals.user = null
     }
     next()
 })
