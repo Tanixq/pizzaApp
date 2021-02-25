@@ -26,8 +26,16 @@
             <ul class="d-flex align-items-center list-unstyled ">
                 <li class="ml-4"><a href="/#menu">Menu</a></li>
                 <li class="ml-4"><a href="">Offers</a></li>
-                <li class="ml-4"><a href="/register">Register</a></li>
-                <li class="ml-4"><a href="/login">Login</a></li>
+
+                <% if (user) { %>
+                    <li class="ml-4">
+                        <a href="/logout">Logout</a>
+                    </li>
+                <% } else { %>
+                    <li class="ml-4"><a href="/register">Register</a></li>
+                    <li class="ml-4"><a href="/login">Login</a></li>
+                <% } %>
+
                 <li class="ml-4 cart px-2 py-1 rounded d-flex align-items-center"><a href="/cart">
                     <img src="https://raw.githubusercontent.com/codersgyan/realtime-pizza-app-node-express-mongo/master/public/img/cart.png" alt="cart_img">
                     <span id="cart-counter" class="text-white font-weight-bold pl-2">

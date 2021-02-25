@@ -1,12 +1,17 @@
 <section class="m-4">
-    <form class="mx-auto w-25 p-4 shadow p-3 mb-5 bg-white rounded">
+    <form action="/register" method="POST" class="mx-auto w-25 p-4 shadow p-3 mb-5 bg-white rounded">
+      
+      <% if (messages.error) { %>
+        <span class="text-danger font-weight-bold"><%= messages.error %> </span>
+      <% } %>
+
         <div class="form-group">
             <label for="fullName">Full Name</label>
-            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter Name">
+            <input type="text" class="form-control" id="fullName" name="name" placeholder="Enter Name" value="<%=messages.name%>">
            </div>
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="<%=messages.email%>">
          </div>
         <div class="form-group">
           <label for="password">Password</label>

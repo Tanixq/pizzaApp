@@ -1,6 +1,9 @@
 <section class="m-4">
-    <form class="mx-auto w-25 p-4 shadow p-3 mb-5 bg-white rounded">
-        <div class="form-group">
+    <form action="/login" method="POST" class="mx-auto w-25 p-4 shadow p-3 mb-5 bg-white rounded">
+      <% if (messages.error) { %>
+        <span class="text-danger font-weight-bold"><%= messages.error %> </span>
+      <% } %> 
+      <div class="form-group">
           <label for="email">Email address</label>
           <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
          </div>

@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('express-flash')
 const MongoStore = require('connect-mongo').default;
+const passport = require('passport')
 
 //DB connection
 console.log(process.env.MONGO_URL);
@@ -28,24 +29,35 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24} //24 Hours
 }))
 
+//Passport config
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+
+//flash config
 app.use(flash())
 
 //Asset
 app.use(express.static('public'))
 
+//Url encoded
+app.use(express.urlencoded({extended: false}))
+
 //Json
 app.use(express.json())
-
-//Global middleware
-app.use((req, res, next) => {
-    res.locals.cart = req.session.cart
-    next()
-})
 
 //Set Template Engine
 app.use(expressLayout)
 app.set('views', path.join(__dirname, 'resources/views'))
 app.set('view engine', 'ejs')
+
+//Global middleware
+app.use((req, res, next) => {
+    res.locals.cart = req.session.cart
+    res.locals.user = req.session.passport.user
+    next()
+})
 
 //Importing routes
 require('./routes/web')(app)
