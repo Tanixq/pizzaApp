@@ -1,0 +1,72 @@
+<section class="container p-4 mt-4">
+    <div class="container p-4 mt-4">
+        <h2 class="font-weight-bold" >Orders</h2>
+        <% if (messages.success) { %>
+            <div class="alert alert-success">
+                <%= messages.success %> 
+            </div>   
+        <% } %>
+        <div class="card-header mb-2"> Orders </div>
+        <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
+
+          <!-- {
+            paymentType: 'COD',
+            status: 'order_placed',
+            _id: 6037958c4c2a563484874283,
+            customerId: {
+              role: 'customer',
+              _id: 60373ad77e9fcc1c08ed3e6d,
+              name: 'tanishq',
+              email: 'tanishq@gmail.com',
+              createdAt: 2021-02-25T05:51:19.528Z,
+              updatedAt: 2021-02-25T05:51:19.528Z,
+              __v: 0
+            },
+            items: {
+              '60363b429a601919a4ee436f': [Object],
+              '60363b429a601919a4ee4370': [Object],
+              '60363b429a601919a4ee4372': [Object],
+              '60363b429a601919a4ee4371': [Object],
+              '60363b429a601919a4ee4375': [Object]
+            },
+            phone: '1234567890',
+            address: 'fdsaf',
+            createdAt: 2021-02-25T12:18:20.703Z,
+            updatedAt: 2021-02-25T12:18:20.703Z,
+            __v: 0
+          } -->
+
+            <% orders.forEach(order => { %>
+                <div class="col mb-4">
+                <div class="card h-100" id="<%=order.id%>">
+                    <div class="card-body">
+                      <h5 class="card-title"><b>Order No.</b>
+                        <br> 
+                        <%= order._id %>
+                     </h5>
+                      <p class="card-text"><b>Phone</b> - <%= order.phone %> <br> <b>Address</b> - <%= order.address %></p>
+                      <p class="card-text"><b>Customer Name -</b> <%= order.customerId.name %></p>
+                      <a href="/<%=order._id%>" class="btn view-btn">View</a>
+                      <div class="dropdown">
+                        <button class="btn view-btn dropdown-toggle mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <%= order.status %> 
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" data-orderId="<%=JSON.stringify(order._id)%>" data-reqType="<%=JSON.stringify('confirm')%>">Confirmed</a>
+                          <a class="dropdown-item" data-orderId="<%=JSON.stringify(order._id)%>" data-reqType="<%=JSON.stringify('reject')%>">Rejected</a>
+                          <a class="dropdown-item" data-orderId="<%=JSON.stringify(order._id)%>" data-reqType="<%=JSON.stringify('outForDelivery')%>">Out For Delivery</a>
+                          <a class="dropdown-item" data-orderId="<%=JSON.stringify(order._id)%>" data-reqType="<%=JSON.stringify('complete')%>">Completed</a>
+                        </div>
+                      </div>
+                      <div class="card-footer mt-3">
+                        <small class="text-muted"><b>Ordered At :</b> <br> <%= moment().format('HH : MM A')%> <br> <%= moment().format('DD MMMM YYYY')%></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% }) %>
+
+        </div>
+   
+</div>
+</section>

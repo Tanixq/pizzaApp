@@ -113,3 +113,18 @@ nav li a {
         box-shadow: none;
     }
 }
+
+.view-btn {
+    transition: $smooth;
+    background-color: $primary;
+    color: $secondary;
+
+    &:hover {
+        background-color: $primary-hover;
+        color: $pure-white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

@@ -101,3 +101,16 @@ nav li a:hover {
   outline: none !important;
   box-shadow: none;
 }
+
+.view-btn {
+  transition: all 0.2s ease-in-out;
+  background-color: #fb743e;
+  color: #f4f9f9;
+}
+.view-btn:hover {
+  background-color: #e40017;
+  color: #fff;
+}
+.view-btn:focus {
+  outline: none;
+}

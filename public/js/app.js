@@ -1906,6 +1906,50 @@ var updateCart = /*#__PURE__*/function () {
   };
 }();
 
+var orderUpdate = document.querySelectorAll('.dropdown-item');
+orderUpdate.forEach(function (btn) {
+  btn.addEventListener('click', /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(e) {
+      var orderId, reqType, orderDetails, res, card;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              orderId = JSON.parse(btn.dataset.orderid);
+              reqType = JSON.parse(btn.dataset.reqtype);
+              orderDetails = {
+                orderId: orderId,
+                reqType: reqType
+              };
+              _context2.prev = 3;
+              _context2.next = 6;
+              return axios.post('/admin/update-order', orderDetails);
+
+            case 6:
+              res = _context2.sent;
+              card = document.getElementById(orderId);
+              card.querySelector('#dropdownMenuButton').innerHTML = res.data.status;
+              _context2.next = 14;
+              break;
+
+            case 11:
+              _context2.prev = 11;
+              _context2.t0 = _context2["catch"](3);
+              console.log(_context2.t0);
+
+            case 14:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[3, 11]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+});
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
     var pizza = JSON.parse(btn.dataset.pizza);

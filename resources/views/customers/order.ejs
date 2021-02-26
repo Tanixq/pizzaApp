@@ -1,0 +1,32 @@
+<section class="container p-4 mt-4">
+    <div class="container p-4 mt-4">
+        <h2 class="font-weight-bold" >Orders</h2>
+        <% if (messages.success) { %>
+            <div class="alert alert-success">
+                <%= messages.success %> 
+            </div>   
+        <% } %>
+        <div class="card-header mb-2"> Orders </div>
+        <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
+
+            <% orders.forEach(order => { %>
+                <div class="col mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                      <h5 class="card-title"><b>Order No.</b>
+                        <br> 
+                        <%= order._id %>
+                     </h5>
+                      <p class="card-text"><b>Phone</b> - <%= order.phone %> <br> <b>Address</b> - <%= order.address %></p>
+                      <p class="card-text"><b>Order Status</b> - <%= order.status %>  </p>
+                      <a href="/<%=order._id%>" class="btn view-btn">View</a>
+                      <div class="card-footer mt-3">
+                        <small class="text-muted"><b>Ordered At :</b> <br> <%= moment().format('HH : MM A')%> <br> <%= moment().format('DD MMMM YYYY')%></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% }) %>
+        </div>  
+</div>
+</section>

@@ -15,6 +15,26 @@ const updateCart = async (pizza) => {
    }
 }
 
+const orderUpdate = document.querySelectorAll('.dropdown-item')
+
+orderUpdate.forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+        let orderId = JSON.parse(btn.dataset.orderid)
+        let reqType = JSON.parse(btn.dataset.reqtype)
+        let orderDetails = {
+            orderId,
+            reqType
+        }
+        try {
+            const res = await axios.post('/admin/update-order', orderDetails)
+                let card = document.getElementById(orderId)
+                card.querySelector('#dropdownMenuButton').innerHTML = res.data.status
+        } catch (error) {
+            console.log(error)
+        }
+    })
+})
+
 addToCart.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         let pizza = JSON.parse(btn.dataset.pizza)

@@ -1,4 +1,4 @@
-const user = (req, res, next) => {
+const auth = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next()
     } else {
@@ -6,4 +6,4 @@ const user = (req, res, next) => {
     }
 }
 
-module.exports = user
+module.exports = auth
